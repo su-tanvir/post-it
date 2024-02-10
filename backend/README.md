@@ -1,4 +1,4 @@
-s***
+***
 # Requisitos
 - Git:  ^2.39.1
 - Node: ^16.17.0
