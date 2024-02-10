@@ -40,7 +40,7 @@ npm run build
 - <details><summary><strong>Setup inicial del proyecto</strong></summary>
   
   - Scaffolding del proyecto con vite build tool (en lugar de *react-scripts*)
-  - Developer tools: linter (eslint) + formatter (prettier) + code styles (stylelint) + editor config (vsc)
+  - Development tools: linter (eslint) + formatter (prettier) + code styles (stylelint) + editor config (vsc)
   - Unit testing configs
   - Despliegue en un servidor remoto (hosting) = <ins>Netlify</ins>
   </details>

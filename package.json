@@ -1,0 +1,7 @@
+{
+  "name": "post-editor",
+  "description": "Global configuration of monorepo (frontend + backend)",
+  "version": "1.0.0",
+  "author": "Tanvir Hossain",
+  "license": "ISC"
+}
