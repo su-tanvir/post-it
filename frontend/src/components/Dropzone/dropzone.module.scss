@@ -1,0 +1,88 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  height: 100%;
+  border: 2px dashed $co-description-soft;
+  border-radius: 1rem;
+  background-color: $co-secondary-soft;
+
+  &.isDragging {
+    background-color: $co-secondary;
+  }
+}
+
+.close {
+  color: $co-description-soft !important;
+  margin-top: 5px !important;
+  margin-left: calc(100% - 20px - 5px) !important;
+
+  [class*='MuiSvgIcon-root'] {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+.wrapper {
+  height: calc(100% - 25px);
+  padding: 0 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header {
+  text-align: center;
+  @include font($ff: $ff-secondary, $fw: $fw-bold, $fs: $fs-md, $lh: $fs-md);
+}
+
+.button {
+  width: 60%;
+  text-transform: none !important;
+  color: $co-dark !important;
+  border: 1px solid $co-description-dark !important;
+}
+
+.footer {
+  @include font(
+    $ff: $ff-secondary,
+    $fs: $fs-2xs,
+    $lh: $fs-2xs,
+    $co: $co-description
+  );
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .wrapper {
+    gap: 25px;
+  }
+
+  .icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .header {
+    @include font($fs: $fs-xl, $lh: $fs-xl);
+  }
+
+  .button {
+    width: 40%;
+    padding: 4px 0 !important;
+
+    &:hover {
+      background-color: $co-secondary !important;
+    }
+  }
+
+  .footer {
+    @include font($fs: $fs-xs, $lh: $fs-xs);
+  }
+}

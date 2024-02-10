@@ -1,0 +1,27 @@
+@use '../../../styles/modules.scss' as *;
+
+.root {
+  max-width: 880px;
+  width: 100%;
+  margin: auto;
+  background: linear-gradient(90deg, $co-primary-soft, $co-tertiary-soft);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+
+  * + & {
+    margin-top: 30px;
+  }
+
+  &.dark {
+    background: $co-dark;
+    border: 1px solid $co-primary-blur;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    * + & {
+      margin-top: 50px;
+    }
+  }
+}

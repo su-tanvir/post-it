@@ -1,0 +1,117 @@
+@use '../../styles/modules.scss' as *;
+
+.default__font {
+  @include font(
+    $ff: $ff-secondary,
+    $fw: $fw-normal,
+    $fs: $fs-md,
+    $lh: $fs-md,
+    $co: $co-dark
+  );
+
+  &.dark {
+    color: $co-light;
+  }
+}
+
+.title {
+  @extend .default__font;
+  @include font($fw: $fw-bold, $fs: $fs-xl, $lh: $fs-xl);
+}
+
+.subtitle {
+  @extend .default__font;
+  @include font($fw: $fw-semibold);
+}
+
+.text,
+.unorderedList,
+.orderedList {
+  @extend .default__font;
+}
+
+.unorderedList {
+  list-style-type: disc;
+}
+
+.orderedList {
+  list-style-type: decimal;
+}
+
+.unorderedList,
+.orderedList {
+  padding: 4px 20px;
+  border-radius: 4px;
+
+  & > li {
+    padding: 5px 0;
+  }
+}
+
+.quote {
+  border-left: 3px solid $co-dark;
+  padding: 14px;
+  width: 100%;
+  background-color: $co-secondary;
+  border-radius: 0 4px 4px 0;
+
+  &__text {
+    @extend .default__font;
+    font-family: $ff-tertiary;
+  }
+
+  &.dark {
+    border-left-color: $co-description-soft;
+    background-color: #e7f3ff;
+  }
+}
+
+.title,
+.subtitle,
+.text {
+  padding: 4px;
+  border-radius: 4px;
+
+  &[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: $co-description-soft;
+  }
+}
+
+.title,
+.subtitle,
+.text,
+.unorderedList,
+.orderedList {
+  &:focus {
+    background-color: $co-secondary-soft;
+    &.dark {
+      background-color: #2c4b6da8;
+    }
+  }
+
+  &:hover:not(:focus) {
+    background-color: $co-secondary-smooth;
+
+    &.dark {
+      background-color: #415b77;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .title {
+    @include font($fs: rem(25px), $lh: rem(25px));
+  }
+
+  .subtitle {
+    @include font($fs: $fs-2xl, $lh: $fs-2xl);
+  }
+
+  .text,
+  .quote__text,
+  .unorderedList,
+  .orderedList {
+    @include font($fs: $fs-lg, $lh: $fs-lg);
+  }
+}

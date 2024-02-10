@@ -1,0 +1,105 @@
+@use '../../styles/modules.scss' as *;
+
+$initialTop: 60vh;
+$initialLeft: -70vw;
+$initialTop-md: 55vh;
+$initialLeft-md: 20vw;
+
+.root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  transform: rotate(145deg);
+  position: relative;
+}
+
+.shooter {
+  position: absolute;
+  height: 2px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #f6778400, #f67784);
+  filter: drop-shadow(#f67784 0px 0px 4px);
+
+  animation: 4s ease-in-out 0s infinite normal none running shooting,
+    4s ease-in-out 0s infinite normal none running tail;
+
+  &:first-child {
+    top: $initialTop;
+    left: $initialLeft;
+    animation-delay: 2.5s;
+  }
+  &:nth-child(2) {
+    top: $initialTop + 5;
+    left: $initialLeft + 2;
+    animation-delay: 3s;
+  }
+  &:nth-child(3) {
+    top: $initialTop + 10;
+    left: $initialLeft + 2;
+    animation-delay: 2s;
+  }
+  &:nth-child(4) {
+    top: $initialTop + 15;
+    left: $initialLeft + 5;
+    animation-delay: 1.5s;
+  }
+  &:last-child {
+    top: $initialTop + 20;
+    left: $initialLeft + 6;
+    animation-delay: 2.5s;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .shooter {
+    height: 3px;
+
+    &:first-child {
+      top: $initialTop-md;
+      left: $initialLeft-md;
+    }
+    &:nth-child(2) {
+      top: $initialTop-md + 10;
+      left: $initialLeft-md + 2;
+    }
+    &:nth-child(3) {
+      top: $initialTop-md + 15;
+      left: $initialLeft-md + 2;
+    }
+    &:nth-child(4) {
+      top: $initialTop-md + 20;
+      left: $initialLeft-md + 5;
+    }
+    &:last-child {
+      top: $initialTop-md + 25;
+      left: $initialLeft-md + 6;
+    }
+  }
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+
+@keyframes tail {
+  0% {
+    width: 0px;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0px;
+  }
+}

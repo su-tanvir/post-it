@@ -1,0 +1,81 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  width: 100%;
+  height: 100%;
+  background-color: $co-light;
+  padding: 15px;
+  border: 1px solid $co-secondary;
+  border-radius: 8px;
+
+  &.dark {
+    background-color: #c7c8e030;
+    border-color: #c7c8e040;
+  }
+}
+
+.header {
+  display: flex;
+  gap: 10px;
+
+  [class*='MuiButtonBase'] {
+    height: 100%;
+  }
+}
+
+.title {
+  [class*='MuiInputBase'] {
+    height: 100%;
+    @include font($fs: $fs-md, $lh: $fs-lg, $fw: $fw-semibold);
+  }
+}
+
+.subject {
+  width: fit-content;
+  margin-block: 10px;
+  padding: 5px 20px;
+  background-color: #ffb8031a;
+  border-radius: 5px;
+
+  @include font($fs: $fs-sm, $lh: $fs-sm, $co: $co-primary);
+
+  &.dark {
+    background-color: $co-description;
+    color: $co-light;
+  }
+}
+
+.date {
+  @include font($ff: $ff-secondary, $fs: $fs-xs, $lh: $fs-xs, $co: $co-text);
+  &.dark {
+    color: $co-tertiary-soft;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    &:hover {
+      cursor: pointer;
+      background-color: $co-secondary-smooth;
+      &.dark {
+        background-color: $co-description;
+      }
+    }
+  }
+
+  .title {
+    [class*='MuiInputBase'] {
+      @include font($fs: $fs-xl, $lh: $fs-2xl);
+      cursor: pointer;
+    }
+  }
+
+  .subject {
+    margin-block: 15px;
+    @include font($fs: $fs-md, $lh: $fs-md);
+  }
+
+  .date {
+    @include font($fs: $fs-sm, $lh: $fs-sm);
+  }
+}

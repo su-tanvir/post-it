@@ -1,0 +1,36 @@
+@use '../../styles/modules.scss' as *;
+
+.button {
+  &.noStyle {
+    &:global(.MuiButton-root) {
+      min-width: 0;
+      border: none;
+      padding: 0;
+      margin: 0;
+      // all: unset
+    }
+  }
+
+  &.outlined {
+    &:global(.MuiButton-root) {
+      min-width: 0;
+      padding: 5px;
+      border-radius: 6px;
+
+      [class*='MuiButton-startIcon'] {
+        margin: 0;
+      }
+    }
+  }
+
+  &.contained {
+    &:global(.MuiButton-root) {
+      width: 185px;
+      text-transform: none;
+
+      &:hover {
+        background-color: $co-primary-soft;
+      }
+    }
+  }
+}

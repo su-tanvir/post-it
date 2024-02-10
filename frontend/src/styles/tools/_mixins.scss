@@ -1,0 +1,36 @@
+/* ========================================================================================= */
+/* MIXINS: Mixin uses using @include */
+/* ========================================================================================= */
+
+// call: @include font($fs: rem(18px), $lh: rem(25px));
+@mixin font(
+  $ff: false,
+  $fs: false,
+  $fw: false,
+  $lh: false,
+  $co: false,
+  $ls: false
+) {
+  @if $ff {
+    font-family: $ff;
+  }
+  @if $fs {
+    font-size: $fs;
+  }
+  @if $fw {
+    font-weight: $fw;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+  @if $co {
+    color: $co;
+  }
+  @if $ls {
+    letter-spacing: $ls;
+  }
+}
+
+@mixin google-font($family) {
+  @import url('https://fonts.googleapis.com/css2?family=#{$family}:wght@400;600;700&display=swap');
+}

@@ -1,0 +1,35 @@
+@use '../../../styles/modules.scss' as *;
+
+.root {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: $header-ht;
+  transition: top 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  z-index: zi-level(observer);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $co-secondary;
+
+  &.dark {
+    border-bottom: 1px solid $co-primary-blur;
+  }
+}
+
+.wrapper {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    height: $header-ht-dt;
+  }
+
+  .wrapper {
+    max-width: $xl;
+    padding: 20px;
+    margin: 0 auto;
+  }
+}

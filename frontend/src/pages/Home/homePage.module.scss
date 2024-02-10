@@ -1,0 +1,65 @@
+@use '../../styles/modules.scss' as *;
+
+.wrapper {
+  align-items: center;
+  gap: 30px;
+  margin: auto;
+}
+
+.actions {
+  gap: 16px;
+}
+
+.title {
+  &:global(.MuiTypography-root) {
+    font-size: rem(40px);
+  }
+
+  &.dark {
+    color: $co-light;
+  }
+}
+
+.description {
+  width: 250px;
+
+  &:global(.MuiTypography-root) {
+    font-size: $fs-xl;
+  }
+
+  &.dark {
+    color: $co-light;
+  }
+
+  &.isHighlighted {
+    @include font($fw: $fw-medium, $co: $co-primary);
+  }
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+@include media-breakpoint-up(md) {
+  .wrapper {
+    gap: 40px;
+
+    .actions {
+      flex-direction: row;
+    }
+  }
+
+  .title {
+    &:global(.MuiTypography-root) {
+      font-size: rem(60px);
+    }
+  }
+
+  .description {
+    width: 100%;
+    &:global(.MuiTypography-root) {
+      font-size: rem(30px);
+    }
+  }
+}

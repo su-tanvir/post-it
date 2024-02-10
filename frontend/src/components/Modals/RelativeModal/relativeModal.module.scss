@@ -1,0 +1,15 @@
+@use '../../../styles/modules.scss' as *;
+
+.root {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  transform: translate(-10px, 5px);
+  background: $co-light;
+  border-radius: 4px;
+  box-shadow: #0f0f0f0d 0px 0px 0px 1px, #0f0f0f1a 0px 3px 6px,
+    #0f0f0f33 0px 9px 24px;
+  max-width: calc(100vw - 24px);
+  overflow: hidden;
+  z-index: zi-level(object);
+}

@@ -1,0 +1,17 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px $co-secondary;
+
+  &.dark {
+    box-shadow: 0 0 5px $co-primary;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    max-width: $lg;
+  }
+}

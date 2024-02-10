@@ -1,0 +1,57 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  [class*='MuiInputBase'] {
+    @include font(
+      $ff: $ff-primary,
+      $fs: $fs-sm,
+      $lh: $fs-sm,
+      $fw: $fw-normal,
+      $co: $co-text
+    );
+
+    &::placeholder {
+      color: $co-description;
+    }
+  }
+
+  &.dark [class*='MuiInputBase'] {
+    caret-color: $co-light;
+    color: $co-primary-soft;
+  }
+}
+
+.standard {
+  [class*='MuiInputBase'] {
+    padding: 0;
+
+    // remove default bottom border
+    &::before,
+    &::after {
+      border: none;
+    }
+    &:hover:before {
+      border-bottom: none !important;
+    }
+  }
+}
+
+.main-title {
+  [class*='MuiInputBase'] {
+    @include font($fs: $fs-2xl, $lh: rem(26px), $fw: $fw-bold);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    [class*='MuiInputBase'] {
+      @include font($fs: $fs-md, $lh: $fs-md);
+    }
+  }
+
+  .main-title {
+    [class*='MuiInputBase'] {
+      @include font($fs: rem(25px), $lh: rem(36px));
+    }
+  }
+}

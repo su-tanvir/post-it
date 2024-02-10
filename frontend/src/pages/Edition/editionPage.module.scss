@@ -1,0 +1,18 @@
+@use '../../styles/modules.scss' as *;
+
+.title {
+  &:global(.MuiTypography-root) {
+    margin: auto;
+    font-size: $fs-2xl;
+  }
+
+  &.dark {
+    color: $co-primary;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .title:global(.MuiTypography-root) {
+    font-size: rem(30px);
+  }
+}

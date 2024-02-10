@@ -1,0 +1,37 @@
+@use '../../styles/modules.scss' as *;
+
+.button {
+  position: fixed !important;
+  bottom: 15px;
+  right: 15px;
+  border-color: $co-primary-blur !important;
+  color: #dcb247 !important;
+  background-color: $co-primary-softer !important;
+
+  &.dark {
+    background-color: #ffb80362 !important;
+  }
+
+  animation: slide-bottom 0.4s linear both;
+}
+
+@include media-breakpoint-up(md) {
+  .button {
+    padding: 8px !important;
+    bottom: 20px;
+    right: 20px;
+
+    [class*='MuiSvgIcon'] {
+      font-size: 22px !important;
+    }
+  }
+}
+
+@keyframes slide-bottom {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

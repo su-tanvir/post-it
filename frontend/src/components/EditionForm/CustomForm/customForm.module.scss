@@ -1,0 +1,11 @@
+@use '../../../styles/modules.scss' as *;
+
+.custom {
+  padding: 15px;
+}
+
+@include media-breakpoint-up(md) {
+  .custom {
+    padding: 30px;
+  }
+}

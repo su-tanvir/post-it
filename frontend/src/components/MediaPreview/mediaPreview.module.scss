@@ -1,0 +1,76 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  width: 250px;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.previewImage,
+.previewText {
+  width: 100%;
+  height: 100%;
+}
+
+.previewText {
+  background-color: $co-secondary-soft;
+  padding: 8px;
+  border-radius: 4px;
+  resize: none;
+  overflow: auto;
+  border-color: $co-secondary;
+  @include font(
+    $ff: $ff-secondary,
+    $fs: $fs-sm,
+    $lh: $fs-sm,
+    $co: $co-description
+  );
+}
+
+.button {
+  position: absolute !important;
+  top: 5px;
+  right: 5px;
+  padding: 2px 6px !important;
+  border-radius: 3px;
+  background-color: #00000099 !important;
+  box-shadow: #0f0f0f0d 0px 0px 0px 1px, #0f0f0f1a 0px 3px 6px,
+    #0f0f0f33 0px 9px 24px;
+  animation: scaling 0.1s;
+
+  &__icon {
+    color: $co-light;
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    width: 450px;
+  }
+
+  .previewText {
+    padding: 15px;
+    @include font($fs: $fs-md, $lh: $fs-md);
+  }
+
+  .button {
+    padding: 2px 8px !important;
+
+    &__icon {
+      width: 18px !important;
+      height: 18px !important;
+    }
+  }
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,83 @@
+@use '../../../../styles/modules.scss' as *;
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  * + & {
+    margin-top: 20px;
+  }
+}
+
+.field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.title {
+  @include font(
+    $ff: $ff-secondary,
+    $fs: $fs-sm,
+    $lh: $fs-sm,
+    $fw: $fw-normal,
+    $co: $co-description
+  );
+
+  &.dark {
+    color: $co-light;
+  }
+}
+
+.select {
+  width: 133px !important;
+  background-color: $co-secondary-soft;
+
+  [class*='MuiSelect-select'] {
+    padding-right: 4px !important;
+    padding-left: 28px !important;
+    margin-top: 1px;
+  }
+
+  [class*='MuiSelect-icon'] {
+    top: 8px;
+    left: 6px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__menu {
+    min-height: 30px !important;
+  }
+
+  &.dark {
+    background-color: $co-dark;
+    [class*='MuiSelect-icon'] {
+      color: $co-light;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .title {
+    @include font($fs: $fs-md, $lh: $fs-md);
+  }
+
+  .select {
+    width: 185px !important;
+
+    [class*='MuiSelect-select'] {
+      padding-left: 30px !important;
+    }
+
+    [class*='MuiSelect-icon'] {
+      width: 18px;
+      height: 18px;
+    }
+
+    &__menu {
+      min-height: 40px !important;
+    }
+  }
+}

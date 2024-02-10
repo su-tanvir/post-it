@@ -1,0 +1,24 @@
+.headline {
+  &__options {
+    height: 24px;
+    margin-bottom: 10px;
+    &_visibility {
+      display: flex;
+      animation: fadeIn 0.5s;
+    }
+  }
+
+  &__title {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

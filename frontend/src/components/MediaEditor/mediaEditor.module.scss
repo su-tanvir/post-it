@@ -1,0 +1,13 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  width: 250px;
+  aspect-ratio: 16 / 9;
+  margin: auto;
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    width: 500px;
+  }
+}

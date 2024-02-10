@@ -1,0 +1,98 @@
+@use '../../../styles/modules.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  height: 356px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-shadow: #37352f17 0px -1px 0px inset;
+
+  &__items {
+    * + * {
+      margin-left: 15px !important;
+    }
+  }
+}
+
+.button {
+  height: 32px;
+  &:global(.MuiButton-root) {
+    text-transform: none;
+    border-radius: 0;
+    padding: 5px !important;
+    @include font($fs: $fs-sm, $lh: $fs-sm, $co: $co-text);
+
+    &:hover {
+      background-color: $co-secondary-soft;
+    }
+
+    &.isSelected {
+      border-bottom: 2px solid $co-dark;
+    }
+
+    &.hasIcon {
+      & > * {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.content {
+  overflow: hidden auto;
+}
+
+.category {
+  &__list {
+    padding: 0 12px;
+  }
+
+  &__item {
+    padding: 10px 0;
+
+    &_name {
+      padding: 5px 0;
+      text-transform: uppercase;
+      @include font(
+        $ff: $ff-secondary,
+        $fs: $fs-xs,
+        $lh: $fs-xs,
+        $co: $co-description-dark
+      );
+    }
+  }
+}
+
+.icon {
+  &__list {
+    padding: 5px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 26px);
+    gap: 10px;
+  }
+
+  &__item {
+    margin: auto;
+  }
+
+  width: 18px !important;
+  color: $co-dark;
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    width: 408px;
+  }
+
+  .icon {
+    &__list {
+      grid-template-columns: repeat(auto-fit, 24px);
+    }
+  }
+}

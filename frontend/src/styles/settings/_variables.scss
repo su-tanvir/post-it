@@ -1,0 +1,84 @@
+// VARS: $var: value
+
+@use 'sass:math'; // module
+
+// COLOR
+$co-primary: #ffb700;
+$co-primary-soft: #fef5e3;
+$co-primary-softer: #ffece4;
+$co-primary-blur: #ffb80362;
+$co-primary-light: #fcb805; // light > lighten, dark > darken
+$co-secondary: #ecedf2;
+$co-secondary-soft: #f5f7fc;
+$co-secondary-smooth: #fafafa;
+$co-tertiary: #d9dbff;
+$co-tertiary-soft: #f8f8ff;
+
+$co-light: #fff;
+$co-dark: #132f4c;
+$co-text: #171717;
+$co-description: #77838f;
+$co-description-soft: #abbbcc;
+$co-description-dark: #696969;
+
+$co-success: #3bb549;
+$co-error: #d32f2f; // #dc494a
+
+// FONTS
+$ff-primary: 'Jost', 'Times New Roman', sans-serif;
+$ff-secondary: 'Nunito', 'Times New Roman', sans-serif;
+$ff-tertiary: 'Marck Script', cursive, sans-serif;
+
+// Convert px to rem based on the root font-size
+$fs-root: 16px;
+@function rem($size) {
+  @return math.div($size, $fs-root) * 1rem;
+}
+
+// Font size
+$fs-2xs: rem(10px);
+$fs-xs: rem(12px);
+$fs-sm: rem(14px);
+$fs-md: rem(16px);
+$fs-lg: rem(18px);
+$fs-xl: rem(20px);
+$fs-2xl: rem(22px);
+
+// Font weight
+$fw-white: 100;
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900;
+
+// Z index on positioned elements (z-buffer: near OBS)
+// var: map
+$zi-level: (
+  default: auto,
+  observer: 999,
+  face-to-face: 500,
+  very-close: 100,
+  close: 10,
+  object: 1,
+  negative: -1,
+);
+
+// Responsive design device sizes
+$xs: 0px;
+$sm: 568px; // mobile
+$md: 768px; // tablet
+$lg: 1024px; // laptop
+$xl: 1280px; // desktop
+$xxl: 1920px; // monitor
+$xxxl: 2560px; // tv
+$x4k: 3840px;
+
+// MISC VARS
+$header-ht: 60px;
+$header-ht-dt: 70px;
+$footer-ht: 90px;
+$footer-ht-dt: 100px;

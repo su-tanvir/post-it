@@ -1,0 +1,25 @@
+@use '../../styles/modules.scss' as *;
+
+.button {
+  min-width: 40px !important;
+  box-shadow: 0 4px 6px #32325d1c, 0 1px 3px #00000014;
+}
+
+.description {
+  display: none;
+}
+
+@include media-breakpoint-up(md) {
+  .button {
+    width: 115px;
+  }
+
+  .description {
+    display: inline;
+    font-size: $fs-sm;
+    text-transform: none;
+    * + & {
+      margin-left: 5px;
+    }
+  }
+}

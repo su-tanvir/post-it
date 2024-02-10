@@ -1,0 +1,154 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  margin: 10px;
+  background-color: #ffffffcc;
+  border-radius: 15px;
+  box-shadow: 0 1.6px 3.25px rgba(0, 0, 0, 0.1),
+    0 0.81px 0.81px rgba(0, 0, 0, 0.06), 0 0 4.88px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+  &.dark {
+    background-color: #6363636b;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: rem(30px) !important;
+
+  &.dark {
+    color: $co-primary;
+  }
+}
+
+.description {
+  @include font(
+    $ff: $ff-primary,
+    $fs: $fs-lg,
+    $lh: $fs-lg,
+    $fw: $fw-medium,
+    $co: $co-text
+  );
+
+  &.dark {
+    color: $co-primary;
+  }
+}
+
+.line {
+  border: none;
+  height: 1px;
+  background-color: $co-secondary;
+  margin: 20px 0;
+
+  &.dark {
+    background-color: $co-primary-blur;
+  }
+}
+
+.list {
+  display: grid;
+  grid-gap: 16px;
+}
+
+.footer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  &__icon {
+    font-size: rem(50px) !important;
+    color: $co-tertiary;
+    &.dark {
+      color: $co-description;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    @include font($fs: $fs-2xl, $lh: $fs-2xl, $co: $co-description);
+    &.dark {
+      color: $co-description-soft;
+    }
+  }
+
+  &__description {
+    @include font($fs: $fs-sm, $lh: $fs-md, $co: $co-description);
+    &.dark {
+      color: $co-description-soft;
+    }
+  }
+}
+
+.action {
+  width: 100%;
+  margin-block: 20px;
+  text-align: center;
+}
+
+.button {
+  box-shadow: 0 4px 6px #32325d1c, 0 1px 3px #00000014;
+
+  &[class*='MuiButton-root'] {
+    padding: 0 20px !important;
+  }
+
+  &__text {
+    font-size: $fs-sm;
+    text-transform: none;
+    * + & {
+      margin-left: 5px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .icon {
+    font-size: rem(40px) !important;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    &__icon {
+      font-size: rem(70px) !important;
+    }
+
+    &__title {
+      @include font($fs: rem(25px), $lh: rem(25px));
+    }
+
+    &__description {
+      @include font($fs: $fs-md, $lh: $fs-md);
+    }
+  }
+
+  .loading {
+    margin-block-start: 50px !important;
+  }
+
+  .button {
+    margin-top: 10px !important;
+
+    &[class*='MuiButton-root'] {
+      padding: 0 30px !important;
+    }
+
+    &__text {
+      font-size: $fs-md;
+    }
+  }
+}

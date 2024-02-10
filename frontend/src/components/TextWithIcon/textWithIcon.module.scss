@@ -1,0 +1,76 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  padding: 6px;
+  border-radius: 4px;
+  background-color: $co-secondary-soft;
+  display: flex;
+  gap: 5px;
+
+  // &[role='button'] {
+  &.isVariant {
+    padding: 4px;
+    background-color: $co-light;
+    &:hover {
+      cursor: pointer;
+      background-color: $co-secondary-soft;
+      &.dark {
+        background-color: $co-primary-blur;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: $co-dark;
+  }
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  color: $co-description;
+
+  .dark & {
+    color: $co-secondary;
+  }
+}
+
+.text {
+  width: 100px;
+  margin: auto 0;
+  @include font(
+    $ff: $ff-secondary,
+    $fs: $fs-sm,
+    $lh: $fs-lg,
+    $fw: $fw-normal,
+    $co: $co-description
+  );
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.isVariant {
+    width: auto;
+    @include font($fs: $fs-2xs, $lh: $fs-xs);
+  }
+
+  .dark & {
+    color: $co-light;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .text {
+    width: 150px;
+    @include font($fs: $fs-md, $lh: $fs-xl);
+
+    &.isVariant {
+      @include font($fs: $fs-xs, $lh: $fs-md);
+    }
+  }
+}

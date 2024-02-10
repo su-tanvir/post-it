@@ -1,0 +1,21 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  margin: 100px 30px 30px;
+  display: grid;
+  gap: 16px;
+}
+
+.skeleton {
+  max-width: 400px;
+  height: 130px;
+  padding: 20px;
+  display: grid;
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    margin-top: 110px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

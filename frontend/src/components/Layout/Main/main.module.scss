@@ -1,0 +1,18 @@
+@use '../../../styles/modules.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - $header-ht - $footer-ht);
+  padding: 30px 12px;
+  margin: 0 auto;
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    max-width: $xl;
+    min-height: calc(100vh - $header-ht-dt - $footer-ht-dt);
+    padding: 60px 18px;
+  }
+}

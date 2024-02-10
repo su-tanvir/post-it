@@ -1,0 +1,29 @@
+.custom {
+  &__fields {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  &__field {
+    &_title {
+      * + & {
+        margin-top: 15px;
+      }
+    }
+    &_subtitle,
+    &_media {
+      * + & {
+        margin-top: 10px;
+      }
+    }
+    &_text,
+    &_quote,
+    &_bulleted-list,
+    &_numbered-list,
+    &_code {
+      * + & {
+        margin-top: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use '../../styles/modules.scss' as *;
+
+.root {
+  display: block !important;
+  margin: 20px auto;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+@include media-breakpoint-up(md) {
+  .root {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
