@@ -1,0 +1,18 @@
+[
+  {
+    "id": "123abc",
+    "title": "Paradigmas de programación",
+    "icon": {
+      "category": "all",
+      "id": 1451
+    },
+    "subjectId": 0,
+    "customFields": [
+      {
+        "type": "title",
+        "value": "Es un titulo"
+      }
+    ],
+    "createdAt": "2023-06-21T14:53:54.692Z"
+  }
+]

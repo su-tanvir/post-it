@@ -1,0 +1,77 @@
+html, body, div, span, h1, h2, h3, h4, p, a, ol, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  max-width: 800px;
+  padding: 30px 20px;
+  margin: auto;
+  background-color: #fff;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title{
+  font: 500 30px/30px 'Jost', 'Times New Roman', sans-serif;
+  color: #701119;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: 0 0 10px 0 #00000025;
+}
+
+.item {
+  padding: 15px 20px 15px 20px;
+  text-align: center;
+}
+
+.item:first-child {
+  border-radius: 6px 6px 0 0;
+}
+.item:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.item.primary {
+  background: linear-gradient(270deg, #701119 0%, #CF6045 100%);
+}
+
+.item.secondary {
+  background-color: #fff5f2b3;
+  border-top: 1px solid #00000025;
+}
+
+.text {
+  font: 20px/20px 'Jost', 'Times New Roman', sans-serif;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #171717;
+  font: 16px/16px 'Jost', 'Times New Roman', sans-serif;
+}
+
+
+@media only screen and (min-width: 768px) {
+  body {
+    padding: 60px;
+  }
+}

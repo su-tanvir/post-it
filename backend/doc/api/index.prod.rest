@@ -1,0 +1,1 @@
+GET https://post-your-ideas-server.vercel.app/api/version HTTP/1.1

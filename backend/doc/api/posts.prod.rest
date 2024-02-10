@@ -1,0 +1,139 @@
+###
+GET https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+
+###
+DELETE  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+
+###
+POST  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Paradigmas de programación",
+  "icon": {
+    "category": "all",
+    "id": 1451
+  },
+  "subjectId": 0,
+  "customFields": [
+    {
+      "type": "title",
+      "value": "Es un titulo"
+    }
+  ]
+}
+
+
+###
+POST  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Icono: nulo",
+  "icon": null,
+  "subjectId": 1,
+  "customFields": [
+    {
+      "type": "subtitle",
+      "value": "Es un subtitulo"
+    }
+  ]
+}
+
+###
+POST  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Custom field: textos simples",
+  "icon": {
+    "category": "activities",
+    "id": 85
+  },
+  "subjectId": 11,
+  "customFields": [
+    {
+      "type": "title",
+      "value": "Es un titulo"
+    },
+    {
+      "type": "text",
+      "value": "Es un texto"
+    },
+    {
+      "type": "bulleted-list",
+      "value": "<li>Es una lista de puntos</li>"
+    },
+    {
+      "type": "numbered-list",
+      "value": "<li>Es una lista numerada</li>"
+    },
+    {
+      "type": "quote",
+      "value": "Es un texto citado"
+    }
+  ]
+}
+
+###
+POST  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Custom field: código",
+  "icon": null,
+  "subjectId": 10,
+  "customFields": [
+    {
+      "type": "code",
+      "value": {
+        "language": "javascript",
+        "code": "console.log('hello world')"
+      }
+    }
+  ]
+}
+
+###
+POST  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Custom field: archivo",
+  "icon": null,
+  "subjectId": 0,
+  "customFields": [
+    {
+      "type": "media",
+      "value": {
+          "type": "text",
+          "value": "import React, { useEffect } from 'react';\n\nexport default function FileUploaderDND(props) {\n  const state = {\n    inDropZone: false,\n    fileList: []\n  };\n\n  const reducer = (state, action) => {\n    switch (action.type) {\n      case 'AddToDropZone':\n        return { ...state, inDropZone: action.inDropZone };\n      case 'AddToList':\n        return { ...state, fileList: state.fileList.concat(action.files) };\n      default:\n        return state;\n    }\n  };\n\n  const [data, dispatch] = React.useReducer(reducer, state);\n\n  const handleDragEnter = (event) => {\n    event.preventDefault();\n    dispatch({ type: 'AddToDropZone', inDropZone: true });\n  };\n\n  const handleDragOver = (event) => {\n    event.preventDefault();\n    event.dataTransfer.dropEffect = 'move';\n    dispatch({ type: 'AddToDropZone', inDropZone: true });\n  };\n\n  const handleDrop = (event) => {\n    event.preventDefault();\n\n    let files = [...event.dataTransfer.files];\n    let files_with_preview = [];\n\n    files.map((file, index) => {\n      file[`image_${index}`] = URL.createObjectURL(file);\n      files_with_preview.push(file);\n    });\n\n    if (files) {\n      dispatch({ type: 'AddToList', files });\n      dispatch({ type: 'AddToDropZone', inDropZone: false });\n    }\n  };\n\n  useEffect(() => {\n    if (data.fileList[0]) {\n      const latestImage = data.fileList[data.fileList.length - 1];\n      let blob = latestImage.preview;\n      let name = latestImage.name;\n      let img = new Image();\n      img.src = blob;\n\n      let reader = new FileReader();\n      reader.readAsDataURL(latestImage);\n      reader.onloadend = function () {\n        let base64data = reader.result;\n        props.changeInputFile({\n          name: name,\n          file: base64data,\n          width: img.width,\n          height: img.height\n        });\n      };\n    }\n  }, [data]);\n\n  return (\n    <div\n      id=\"fileuploaderdnd-container\"\n      className=\"fileuploaderdnd-container\"\n      onDrop={(event) => handleDrop(event)}\n      onDragOver={(event) => handleDragOver(event)}\n      onDragEnter={(event) => handleDragEnter(event)}\n    >\n      <div className=\"fileuploaderdnd-container-button\">\n        <div className=\"fileuploaderdnd-container-text\">\n          drag and drop an image here to see output 👉🏼\n        </div>\n      </div>\n    </div>\n  );\n}"
+      }
+    }
+  ]
+}
+
+###
+POST  https://post-your-ideas-server.vercel.app/api/posts HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Custom field: shortest image",
+  "icon": null,
+  "subjectId": 0,
+  "customFields": [
+    {
+      "type": "media",
+      "value": {
+        "type": "image",
+        "value": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+      }
+    }
+  ]
+}
+
+###
+GET  https://post-your-ideas-server.vercel.app/api/posts/64a93cc500862fb2caf7f772 HTTP/1.1
+
+###
+DELETE https://post-your-ideas-server.vercel.app/api/posts/64a93cc500862fb2caf7f772 HTTP/1.1
