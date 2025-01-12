@@ -18,7 +18,7 @@
     | **Visualization**      | See list of posts <br> Filter list of posts <br> View post content
   </details>
 
-- `Development stage`: <ins>mono-repository or workspace</ins> to manage two projects (follow branch strategy: **Github flow**)
+- `Development stage`: project based on <ins>mono-repository or workspace</ins> to manage two projects (following branch strategy: **Github flow**)
   - [Frontend](../frontend/README.md)
   - [Backend](../backend/README.md)
 

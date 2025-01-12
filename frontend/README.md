@@ -39,10 +39,42 @@ npm run build
 # Development roadmap
 - <details><summary><strong>Setup inicial del proyecto</strong></summary>
   
-  - Scaffolding del proyecto con vite build tool (en lugar de *react-scripts*)
+  - Scaffolding automático del proyecto con vite build tool (en lugar de *react-scripts*)
+    ```bash
+    # note: vite requires nodejs
+    npm init vite@latest <frontend> -- --template react-ts
+    cd <frontend>
+    npm i && npm start
+    ```
   - Development tools: linter (eslint) + formatter (prettier) + code styles (stylelint) + editor config (vsc)
-  - Unit testing configs
-  - Despliegue en un servidor remoto (hosting) = <ins>Netlify</ins>
+    ```bash
+    1) Linter: permite detectar/corregir errores + estandarizar el código con convenciones
+      - usar linter ESlint (para código - test) + Stylelint (para estilos)
+      - config manual del eslint para concretar reglas || usar configs preestablecidas de un linter específico (standard, semistandard, airbnb, ...) que por debajo usa el linter eslint
+        - ejecutar linter al vuelo: npx eslint [options] [file|dir|glob]*
+      - output (configs): .eslintrc.json, .eslintignore, ...
+
+      - vsc extension: eslint, stylelint
+      - instalar pkg o plugins necesarios para el correcto funcionamiento del linter
+
+    2) Formatter: permite dar una forma al código para que quede limpio
+      - usar prettier + configurar
+
+    3) Config del proyecto para que apunte a estas tools (tsconfig)
+
+    4) Config del editor or IDE para que use estas tools (.vscode/settings.json)
+    ```
+  - Unit testing
+    ```bash
+    1) JS Unit testing framework: Jest
+      - config de jest
+      - actualizar otras configs de eslint, proyecto, ...
+      - instalar pkg o plugins necesarios para testear componentes de react
+    2) JS End-to-end testing framework: Cypress
+      - config
+      - instalar pkg o plugins necesarios
+    ```
+  - Despliegue en un servidor hosting remoto (*serverless function*) con un *dominio* = <ins>Netlify</ins>
   </details>
 
 - <details><summary><strong>Proceso de desarrollo</strong></summary>
@@ -83,9 +115,13 @@ npm run build
     - Ver los detalles de un post
     </details>
   - Error page: **NotFound**
-  - Aplicación de **SEO** manualmente (alternativa: **react-helmet**) 
-  - Uso exhaustivo de **Context API** de react para evitar *props drilling*
+  - Aplicación de **SEO** manualmente (alternativa: **react-helmet**)
+  - Uso de **tooltip sooner-toast** para mostrar mensajes informativos
+  - Uso exhaustivo de **Context API** de react para evitar _props drilling_
+    - La idea principal de Context consiste en tener accesibilidad a cierta información desde cualquier parte del árbol de elementos de React (no se puede comparar con un estado global de la app)
+    - **Abstracción de estado global** en custom hooks
   - Setup de **alias** de rutas para evitar uso de *relative paths*
+  - Otros: _void_ operator, role, tabIndex, onKeyDown, onKeyUp, stopPropagation, ...
 </details>
 
 ***
